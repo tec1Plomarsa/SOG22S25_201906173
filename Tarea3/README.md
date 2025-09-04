@@ -20,12 +20,12 @@ Instalación rápida (Windows, en la carpeta del proyecto):
 
 ```powershell
 py -m venv .venv
-.\.venv\Scriptsctivate
+.\.venv\Scripts\activate
 pip install pandas numpy matplotlib notebook
 jupyter notebook
 ```
 
-> Si usas `pipenv`, ajusta tu `Pipfile` a `python_version = "3.12"` y crea el entorno con  
+> Si se usa `pipenv`, ajustar `Pipfile` a `python_version = "3.12"` y crear el entorno con  
 > `pipenv --python <ruta-a-python>` y `pipenv install`.
 
 ---
@@ -33,10 +33,16 @@ jupyter notebook
 ## 2) Estructura
 
 ```
-Tarea3/
-├─ analyze.ipynb          # Notebook con el paso a paso
-├─ winequality-red.csv    # Dataset (separador ';')
-└─ output/                # Se crea al correr; guarda PNG y conclusiones.txt
+SOG22S25_201906173/
+└─ Tarea3/
+   ├─ .venv/
+   ├─ .ipynb_checkpoints/
+   ├─ .gitignore
+   ├─ analyze.ipynb
+   ├─ Pipfile / Pipfile.lock
+   ├─ README.md
+   └─ winequality-red.csv
+
 ```
 
 ---
@@ -79,7 +85,7 @@ El notebook:
 - **Salida:** `output/paso04_matriz_correlacion.png`.
 
 **Cómo leerla:**  
-Rojo (positivo) ↗, Azul (negativo) ↘, 0 ≈ sin relación lineal. Diagonal = 1.
+Rojo (positivo), Azul (negativo), 0 ≈ sin relación lineal. Diagonal = 1.
 
 ### 4.5 Gráficas (≥3) generadas
 1. **Histograma de `quality`** → `output/paso05_1_hist_quality.png`  
@@ -102,25 +108,7 @@ Rojo (positivo) ↗, Azul (negativo) ↘, 0 ≈ sin relación lineal. Diagonal =
 
 ---
 
-## 6) Cómo armar el PDF único (entrega)
-
-Orden sugerido:
-
-1. **Portada** (curso, “Tarea 3”, nombre/carné, fecha).  
-2. **Metodología**: “Se usó Python (pandas, numpy, matplotlib) en Jupyter; se realizó limpieza, resumen estadístico, matriz de correlación y ≥3 gráficas.”  
-3. **Limpieza** (resumen de cifras).  
-4. **Resumen estadístico** (tabla/captura de `describe`).  
-5. **Matriz de correlación** + breve interpretación.  
-6. **Gráficas**: histograma, scatter `alcohol vs quality`, boxplot `volatile_acidity` (y *extra* `sulphates`).  
-7. **Conclusiones** (copiar desde `conclusiones.txt`).
-
-**Cómo producirlo:**
-- Inserta los PNG en Word/Google Docs → **Exportar a PDF**, **o**
-- En Jupyter, `File → Download as HTML`, abrir el `.html` y **Imprimir → Guardar como PDF**.
-
----
-
-## 7) Solución de problemas
+## 6) Solución de problemas
 
 - **Solo 1 columna al leer el CSV:** usa `sep=';'` (dataset UCI); si sigue, intenta `sep=','`.  
 - **`NameError: df no definido`:** vuelve a ejecutar la celda que crea `df`.  
@@ -129,7 +117,7 @@ Orden sugerido:
 
 ---
 
-## 8) Créditos
+## 7) Créditos
 
 - Dataset: *Wine Quality – Red*, UCI Machine Learning Repository.  
 - Librerías: **pandas**, **numpy**, **matplotlib**, **Jupyter**.
